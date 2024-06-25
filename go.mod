@@ -2,6 +2,8 @@ module github.com/OS-M/s5cmd/v2
 
 go 1.19
 
+replace github.com/aws/aws-sdk-go v1.44.256 => github.com/OS-M/aws-sdk-go v1.0.0
+
 require (
 	github.com/aws/aws-sdk-go v1.44.256
 	github.com/cheggaaa/pb/v3 v3.1.4
