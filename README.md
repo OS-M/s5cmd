@@ -1,4 +1,4 @@
-[![Go Report](https://goreportcard.com/badge/github.com/peak/s5cmd/v2)](https://goreportcard.com/report/github.com/peak/s5cmd/v2) ![Github Actions Status](https://github.com/peak/s5cmd/actions/workflows/ci.yml/badge.svg)
+[![Go Report](https://goreportcard.com/badge/github.com/OS-M/s5cmd/v2)](https://goreportcard.com/report/github.com/OS-M/s5cmd/v2) ![Github Actions Status](https://github.com/peak/s5cmd/actions/workflows/ci.yml/badge.svg)
 
 ![](./doc/s5cmd_header.jpg)
 
@@ -108,7 +108,7 @@ make install clean
 You can build `s5cmd` from source if you have [Go](https://golang.org/dl/) 1.19+
 installed.
 
-    go install github.com/peak/s5cmd/v2@master
+    go install github.com/OS-M/s5cmd/v2@master
 
 ⚠️ Please note that building from `master` is not guaranteed to be stable since
 development happens on `master` branch.

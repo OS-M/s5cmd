@@ -13,8 +13,8 @@ import (
 	"runtime"
 	"strings"
 
+	"github.com/OS-M/s5cmd/v2/strutil"
 	"github.com/lanrat/extsort"
-	"github.com/peak/s5cmd/v2/strutil"
 )
 
 const (

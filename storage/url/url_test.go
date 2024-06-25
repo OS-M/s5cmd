@@ -6,9 +6,9 @@ import (
 	"regexp"
 	"testing"
 
+	"github.com/OS-M/s5cmd/v2/strutil"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
-	"github.com/peak/s5cmd/v2/strutil"
 )
 
 func TestHasWild(t *testing.T) {
