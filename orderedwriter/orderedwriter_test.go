@@ -193,7 +193,7 @@ func TestShuffleConcurrentWriteWithRandomChunkSize(t *testing.T) {
 // call occurs and don't count on the given slice's value.
 
 // We will simulate the aws-sdk-go's download manager algorithm.
-// See: https://github.com/aws/aws-sdk-go/blob/main/service/s3/s3manager/download.go
+// See: https://github.com/OS-M/aws-sdk-go/blob/main/service/s3/s3manager/download.go
 
 // dlchunk represents a single chunk of data to write by the worker routine.
 // This structure also implements an io.SectionReader style interface for

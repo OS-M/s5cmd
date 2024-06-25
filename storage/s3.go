@@ -19,17 +19,17 @@ import (
 	"sync"
 	"time"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/awserr"
-	"github.com/aws/aws-sdk-go/aws/client"
-	"github.com/aws/aws-sdk-go/aws/credentials"
-	"github.com/aws/aws-sdk-go/aws/endpoints"
-	"github.com/aws/aws-sdk-go/aws/request"
-	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/aws/aws-sdk-go/service/s3"
-	"github.com/aws/aws-sdk-go/service/s3/s3iface"
-	"github.com/aws/aws-sdk-go/service/s3/s3manager"
-	"github.com/aws/aws-sdk-go/service/s3/s3manager/s3manageriface"
+	"github.com/OS-M/aws-sdk-go/aws"
+	"github.com/OS-M/aws-sdk-go/aws/awserr"
+	"github.com/OS-M/aws-sdk-go/aws/client"
+	"github.com/OS-M/aws-sdk-go/aws/credentials"
+	"github.com/OS-M/aws-sdk-go/aws/endpoints"
+	"github.com/OS-M/aws-sdk-go/aws/request"
+	"github.com/OS-M/aws-sdk-go/aws/session"
+	"github.com/OS-M/aws-sdk-go/service/s3"
+	"github.com/OS-M/aws-sdk-go/service/s3/s3iface"
+	"github.com/OS-M/aws-sdk-go/service/s3/s3manager"
+	"github.com/OS-M/aws-sdk-go/service/s3/s3manager/s3manageriface"
 
 	"github.com/OS-M/s5cmd/v2/log"
 	"github.com/OS-M/s5cmd/v2/storage/url"
@@ -498,8 +498,8 @@ func (s *S3) Copy(ctx context.Context, from, to *url.URL, metadata Metadata) err
 		// Unlike many other *Input and *Output types version ID is not a field,
 		// but rather something that must be appended to CopySource string.
 		// This is same in both v1 and v2 SDKs:
-		// https://pkg.go.dev/github.com/aws/aws-sdk-go/service/s3#CopyObjectInput
-		// https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#CopyObjectInput
+		// https://pkg.go.dev/github.com/OS-M/aws-sdk-go/service/s3#CopyObjectInput
+		// https://pkg.go.dev/github.com/OS-M/aws-sdk-go-v2/service/s3#CopyObjectInput
 		input.CopySource = aws.String(copySource + "?versionId=" + from.VersionID)
 	}
 
