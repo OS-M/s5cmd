@@ -6,6 +6,7 @@ import (
 	"os"
 	"strings"
 
+	"github.com/OS-M/aws-sdk-go/aws/credentials"
 	"github.com/urfave/cli/v2"
 
 	"github.com/OS-M/s5cmd/v2/log"
@@ -178,7 +179,7 @@ var app = &cli.App{
 
 // NewStorageOpts creates storage.Options object from the given context.
 func NewStorageOpts(c *cli.Context) storage.Options {
-	return storage.Options{
+	opts := storage.Options{
 		DryRun:                 c.Bool("dry-run"),
 		Endpoint:               c.String("endpoint-url"),
 		MaxRetries:             c.Int("retry-count"),
@@ -191,6 +192,16 @@ func NewStorageOpts(c *cli.Context) storage.Options {
 		LogLevel:               log.LevelFromString(c.String("log")),
 		NoSuchUploadRetryCount: c.Int("no-such-upload-retry-count"),
 	}
+
+	cr := credentials.NewSharedCredentials(opts.CredentialFile, opts.Profile)
+	v, err := cr.Get()
+	if err != nil {
+		printError("NewStorageOpts", c.Command.Name, err)
+	}
+	if len(v.Endpoint) != 0 {
+		opts.Endpoint = v.Endpoint
+	}
+	return opts
 }
 
 func Commands() []*cli.Command {
