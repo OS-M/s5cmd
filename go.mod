@@ -3,7 +3,7 @@ module github.com/OS-M/s5cmd/v2
 go 1.19
 
 require (
-	github.com/OS-M/aws-sdk-go v1.0.1
+	github.com/OS-M/aws-sdk-go v1.0.2
 	github.com/cheggaaa/pb/v3 v3.1.4
 	github.com/golang/mock v1.6.0
 	github.com/google/go-cmp v0.5.9
@@ -20,7 +20,6 @@ require (
 
 require (
 	github.com/VividCortex/ewma v1.2.0 // indirect
-	github.com/aws/aws-sdk-go v1.44.256 // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.2 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/fatih/color v1.15.0 // indirect
