@@ -1192,9 +1192,15 @@ func (sc *SessionCache) newSession(ctx context.Context, opts Options) (*session.
 		// do not sign requests when making service API calls
 		awsCfg = awsCfg.WithCredentials(credentials.AnonymousCredentials)
 	} else if opts.CredentialFile != "" || opts.Profile != "" {
-		awsCfg = awsCfg.WithCredentials(
-			credentials.NewSharedCredentials(opts.CredentialFile, opts.Profile),
-		)
+		cr := credentials.NewSharedCredentials(opts.CredentialFile, opts.Profile)
+		awsCfg = awsCfg.WithCredentials(cr)
+		v, err := cr.Get()
+		if err != nil {
+			return nil, err
+		}
+		if len(v.Endpoint) != 0 {
+			opts.Endpoint = v.Endpoint
+		}
 	}
 
 	endpointURL, err := parseEndpoint(opts.Endpoint)

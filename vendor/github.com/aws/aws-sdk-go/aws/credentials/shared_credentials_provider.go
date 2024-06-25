@@ -109,6 +109,7 @@ func loadProfile(filename, profile string) (Value, error) {
 		SecretAccessKey: secret,
 		SessionToken:    token,
 		ProviderName:    SharedCredsProviderName,
+		Endpoint:        iniProfile.String("endpoint_url"),
 	}, nil
 }
 
