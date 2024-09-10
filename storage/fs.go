@@ -238,6 +238,10 @@ func (f *Filesystem) CreateTemp(dir, pattern string) (*os.File, error) {
 		return &os.File{}, nil
 	}
 
+	if filepath.Join(dir, pattern) == os.DevNull {
+		return os.OpenFile(os.DevNull, os.O_RDWR, 0777)
+	}
+
 	file, err := os.CreateTemp(dir, pattern)
 	if err != nil {
 		return nil, err
@@ -250,6 +254,10 @@ func (f *Filesystem) CreateTemp(dir, pattern string) (*os.File, error) {
 // Rename a file
 func (f *Filesystem) Rename(file *os.File, newpath string) error {
 	if f.dryRun {
+		return nil
+	}
+
+	if file.Name() == os.DevNull {
 		return nil
 	}
 
