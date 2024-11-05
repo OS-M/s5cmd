@@ -196,10 +196,18 @@ func NewStorageOpts(c *cli.Context) storage.Options {
 	cr := credentials.NewSharedCredentials(opts.CredentialFile, opts.Profile)
 	v, err := cr.Get()
 	if err != nil {
-		printError("NewStorageOpts", c.Command.Name, err)
+		if opts.Profile != "" {
+			printError("NewStorageOpts", c.Command.Name, err)
+		}
+		v = credentials.Value{}
 	}
-	if len(v.Endpoint) != 0 {
+	if len(v.Endpoint) > 0 {
 		opts.Endpoint = v.Endpoint
+	} else {
+		opts.Endpoint = "https://storage.eu-north1.nebius.cloud"
+	}
+	if len(v.Region) > 0 {
+		opts.SetRegion(v.Region)
 	}
 	return opts
 }

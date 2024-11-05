@@ -3,7 +3,7 @@ module github.com/OS-M/s5cmd/v2
 go 1.19
 
 require (
-	github.com/OS-M/aws-sdk-go v1.0.2
+	github.com/OS-M/aws-sdk-go v1.0.3
 	github.com/cheggaaa/pb/v3 v3.1.4
 	github.com/golang/mock v1.6.0
 	github.com/google/go-cmp v0.5.9

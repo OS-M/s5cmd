@@ -1,5 +1,5 @@
-github.com/OS-M/aws-sdk-go v1.0.2 h1:rvLxso5PnUdxtVEoaBdszEZPI8W0FAaKmk0bDsmfTKU=
-github.com/OS-M/aws-sdk-go v1.0.2/go.mod h1:iw5PMT9ln4g3gxxdOm2UYSQLirMrkHLy1Pwf9x96XZY=
+github.com/OS-M/aws-sdk-go v1.0.3 h1:jHx0KW9QcS4w0WbEpMPNnY1uymth+z8MMUeakURysZs=
+github.com/OS-M/aws-sdk-go v1.0.3/go.mod h1:iw5PMT9ln4g3gxxdOm2UYSQLirMrkHLy1Pwf9x96XZY=
 github.com/VividCortex/ewma v1.2.0 h1:f58SaIzcDXrSy3kWaHNvuJgJ3Nmz59Zji6XoJR/q1ow=
 github.com/VividCortex/ewma v1.2.0/go.mod h1:nz4BbCtbLyFDeC9SUHbtcT5644juEuWfUAUnGx7j5l4=
 github.com/aws/aws-sdk-go v1.44.256 h1:O8VH+bJqgLDguqkH/xQBFz5o/YheeZqgcOYIgsTVWY4=

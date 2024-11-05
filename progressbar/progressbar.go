@@ -44,7 +44,7 @@ func New() *CommandProgressBar {
 	return &CommandProgressBar{
 		progressbar: pb.New64(0).
 			Set(pb.Bytes, true).
-			Set(pb.SIBytesPrefix, true).
+			//Set(pb.SIBytesPrefix, true).
 			SetWidth(128).
 			Set("objects", fmt.Sprintf("(%d/%d)", 0, 0)).
 			SetTemplateString(progressbarTemplate),

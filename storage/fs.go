@@ -184,6 +184,10 @@ func (f *Filesystem) Delete(ctx context.Context, url *url.URL) error {
 		return nil
 	}
 
+	if url.Absolute() == os.DevNull {
+		return nil
+	}
+
 	return os.Remove(url.Absolute())
 }
 
@@ -208,6 +212,9 @@ func (f *Filesystem) MultiDelete(ctx context.Context, urlch <-chan *url.URL) <-c
 // MkdirAll calls os.MkdirAll.
 func (f *Filesystem) MkdirAll(path string) error {
 	if f.dryRun {
+		return nil
+	}
+	if path == os.DevNull {
 		return nil
 	}
 	return os.MkdirAll(path, os.ModePerm)
@@ -239,7 +246,7 @@ func (f *Filesystem) CreateTemp(dir, pattern string) (*os.File, error) {
 	}
 
 	if filepath.Join(dir, pattern) == os.DevNull {
-		return os.OpenFile(os.DevNull, os.O_RDWR, 0777)
+		return os.OpenFile(os.DevNull, os.O_WRONLY, 0666)
 	}
 
 	file, err := os.CreateTemp(dir, pattern)
